@@ -1,0 +1,62 @@
+---
+const navItems = [
+  { href: "/", text: "Home" },
+  { href: "/about", text: "About" },
+  { href: "/blog/first-post", text: "Blog" }
+];
+---
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/">My Astro Site</a>
+        </div>
+        <ul class="nav-items">
+            {navItems.map(item => (
+                <li><a href={item.href}>{item.text}</a></li>
+            ))}
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        background: #f8f9fa;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+    
+    .logo a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #007acc;
+    }
+    
+    .nav-items {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-items a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+    
+    .nav-items a:hover {
+        color: #007acc;
+    }
+</style>

@@ -1,0 +1,174 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const publishDate = new Date('2024-01-15');
+const author = "Astro Developer";
+const readingTime = "3 min read";
+---
+
+<Layout title="My First Blog Post" description="Getting started with Astro blogging">
+    <Header />
+    <main>
+        <article class="blog-post">
+            <header class="post-header">
+                <h1>Getting Started with Astro</h1>
+                <div class="post-meta">
+                    <span>By {author}</span>
+                    <span>•</span>
+                    <time datetime={publishDate.toISOString()}>
+                        {publishDate.toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })}
+                    </time>
+                    <span>•</span>
+                    <span>{readingTime}</span>
+                </div>
+            </header>
+            
+            <div class="post-content">
+                <p>
+                    Welcome to my first blog post built with Astro! This post demonstrates 
+                    how easy it is to create content-rich pages using Astro's file-based 
+                    routing system.
+                </p>
+                
+                <h2>Why Choose Astro?</h2>
+                <p>
+                    Astro offers several compelling advantages for modern web development:
+                </p>
+                
+                <ul>
+                    <li><strong>Performance First:</strong> Ships zero JavaScript by default</li>
+                    <li><strong>Framework Agnostic:</strong> Use React, Vue, Svelte, or vanilla JS</li>
+                    <li><strong>Islands Architecture:</strong> Interactive components only where needed</li>
+                    <li><strong>Developer Experience:</strong> Built-in TypeScript and great tooling</li>
+                </ul>
+                
+                <h2>File-based Routing</h2>
+                <p>
+                    This blog post exists at <code>/blog/first-post</code> because the file 
+                    is located at <code>src/pages/blog/first-post.astro</code>. Astro 
+                    automatically creates routes based on your file structure.
+                </p>
+                
+                <blockquote>
+                    <p>
+                        "Astro lets you use your favorite UI framework to build 
+                        static sites that load lightning fast with zero client-side JavaScript."
+                    </p>
+                </blockquote>
+                
+                <h2>What's Next?</h2>
+                <p>
+                    In future posts, we'll explore more advanced Astro features like:
+                </p>
+                <ol>
+                    <li>Content collections for better content management</li>
+                    <li>API routes for dynamic functionality</li>
+                    <li>Integrations with popular services</li>
+                    <li>Deployment strategies</li>
+                </ol>
+                
+                <p>
+                    Thanks for reading! Feel free to explore the rest of this demo site 
+                    to see more Astro features in action.
+                </p>
+            </div>
+        </article>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: calc(100vh - 200px);
+    }
+    
+    .blog-post {
+        line-height: 1.7;
+    }
+    
+    .post-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        border-bottom: 1px solid #e1e8ed;
+        padding-bottom: 2rem;
+    }
+    
+    .post-header h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+    
+    .post-meta {
+        color: #6c757d;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .post-content h2 {
+        color: #34495e;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    .post-content p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+    }
+    
+    .post-content li {
+        margin-bottom: 0.5rem;
+    }
+    
+    code {
+        background: #f1f3f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+    
+    blockquote {
+        margin: 2rem 0;
+        padding: 1rem 2rem;
+        background: #f8f9fa;
+        border-left: 4px solid #3498db;
+        font-style: italic;
+    }
+    
+    blockquote p {
+        margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        main {
+            padding: 1rem;
+        }
+        
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        
+        .post-meta {
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+    }
+</style>
